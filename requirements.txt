@@ -1,0 +1,6 @@
+emoji==2.14.1
+matplotlib==3.10.0
+pandas==2.2.3
+praw==7.7.1
+tqdm==4.63.0
+wordcloud==1.9.4
