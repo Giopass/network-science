@@ -12,12 +12,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 
-# Set up the output directory
-output_dir = 'data'
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-
-
 reddit = praw.Reddit(
     client_id = '9AkNcQ17Z5pi_zo36Qrr6g',
     client_secret = 'bTQxJR7g2NVrYQZ1kNT1iipeMIGckA',
@@ -96,11 +90,10 @@ def generate_wordcloud(emoji_counts, subreddit_name):
     except Exception as e:
         print(f"Error generating word cloud for {subreddit_name}: {e}")
 
-def scrape_subreddits(subreddits, category_name, output_dir):
+def scrape_subreddits(subreddits, category_name, output_dir, posts_to_retrieve=2):
     for subreddit_name in subreddits:
         subreddit = reddit.subreddit(subreddit_name)
-        total_posts_to_retrieve = 2
-        all_posts = fetch_posts(subreddit, total_posts_to_retrieve)
+        all_posts = fetch_posts(subreddit, posts_to_retrieve)
         post_ids = [post['id'] for post in all_posts]
 
         # Fetch and save posts
