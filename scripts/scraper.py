@@ -12,13 +12,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 
-reddit = praw.Reddit(
-    client_id = '9AkNcQ17Z5pi_zo36Qrr6g',
-    client_secret = 'bTQxJR7g2NVrYQZ1kNT1iipeMIGckA',
-    user_agent = 'Dry_Try8800',
-    check_for_async = False
-)
-
 def extract_emojis(text):
     return ''.join(char for char in text if char in emoji.EMOJI_DATA)
 
